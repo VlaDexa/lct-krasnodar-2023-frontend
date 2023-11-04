@@ -1,0 +1,8 @@
+{
+	"crons": [
+		{
+			"path": "/api/alertTimeToHackathonEnd",
+			"schedule": "0 * * * *"
+		}
+	]
+}

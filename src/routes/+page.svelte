@@ -1,17 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { get, set } from 'idb-keyval';
 	let granted: boolean | undefined;
 	async function handleClick(event: MouseEvent) {
 		const promise = await Notification.requestPermission();
 		if (promise === 'granted') {
-			const not = new Notification('Пасяб');
+			new Notification('Пасяб');
 			granted = true;
 		} else if (promise === 'denied') {
 			granted = false;
 		}
 	}
 	function sendNotif() {
-		const not = new Notification('Not');
+		new Notification('Not');
 	}
 	onMount(() => {
 		if (Notification.permission !== 'default') {
@@ -28,15 +29,17 @@
 				// Get the server's public key
 				const response = await fetch('/api/vapidKey');
 				const vapidPublicKey = await response.text();
-				// Chrome doesn't accept the base64-encoded (string) vapidPublicKey yet
-				// urlBase64ToUint8Array() is defined in /tools.js
-				// const convertedVapidKey = atob(vapidPublicKey);
 				return await registration.pushManager.subscribe({
 					userVisibleOnly: true,
 					applicationServerKey: vapidPublicKey
 				});
 			})
-			.then(function (subscription) {
+			.then(async function (subscription) {
+				let pushId = await get('push-id');
+				if (pushId) await fetch('/api/registerPush', { method: 'delete', body: pushId.toString() });
+				const register = await fetch('/api/registerPush', { method: 'post', body: JSON.stringify(subscription.toJSON()) });
+				const id = parseInt(await register.json());
+				set('push-id', id);
 				fetch('/api/sendNotification', {
 					method: 'post',
 					headers: {
@@ -44,7 +47,6 @@
 					},
 					body: JSON.stringify({
 						subscription: subscription,
-						delay: 0,
 						ttl: 500
 					})
 				});

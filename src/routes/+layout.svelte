@@ -3,7 +3,7 @@
 	//import { page } from '$app/stores';
 	//import { webVitals } from '$lib/vitals';
 	import './styles.css';
-	import "../app.css";
+	import '../app.css';
 
 	/** @type {import('./$types').LayoutServerData} */
 	export let data;
@@ -17,11 +17,9 @@
 	//}
 </script>
 
-<div>
-	<main>
-		<slot />
-	</main>
-</div>
+<main class="w-screen h-screen">
+	<slot />
+</main>
 
 <style>
 </style>

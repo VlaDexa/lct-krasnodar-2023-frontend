@@ -14,6 +14,9 @@
 		const not = new Notification('Not');
 	}
 	onMount(() => {
+		if (Notification.permission !== 'default') {
+			granted = Notification.permission === 'granted';
+		}
 		navigator.serviceWorker.ready
 			.then(async function (registration) {
 				// Use the PushManager to get the user's subscription to the push service.
@@ -54,13 +57,13 @@
 	<meta name="description" content="MISIS Харбинская лапша" />
 </svelte:head>
 
-<section>
+<section class="px-[40vw] py-[47vh]">
 	{#if granted}
-		<button class="border-2 border-green-500 rounded-full p-2" on:click={sendNotif}
+		<button class="w-full border-2 border-green-500 rounded-full p-2" on:click={sendNotif}
 			>Отправить уведомление</button
 		>
 	{:else if granted === undefined}
-		<button class="border-2 border-green-500 rounded-full p-2" on:click={handleClick}>
+		<button class="w-full border-2 border-green-500 rounded-full p-2" on:click={handleClick}>
 			Включить оповещения
 		</button>
 	{:else}

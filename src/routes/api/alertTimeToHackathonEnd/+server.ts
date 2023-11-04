@@ -8,7 +8,7 @@ import type { PushSubscriptionModel } from "../../../models";
 const HACKATHON_END = Date.UTC(2023, 10, 11, 21);
 export const GET: RequestHandler = async () => {
 	const allPush = await pool.sql<QueryResultRow & PushSubscriptionModel>`SELECT * FROM requests`;
-	const milisLeft = new Date().valueOf() - HACKATHON_END;
+	const milisLeft = HACKATHON_END - new Date().valueOf();
 	const hoursLeft = Math.floor(milisLeft / 1000 / 60 / 60);
 	const daysLeft = Math.floor(hoursLeft / 24);
 	for (const row of allPush.rows) {

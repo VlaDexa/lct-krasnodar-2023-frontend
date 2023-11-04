@@ -1,4 +1,5 @@
-import { sendNotification, type PushSubscription } from "web-push";
+import web_push, { type PushSubscription } from "web-push";
+const {sendNotification} = web_push;
 import type { RequestHandler } from "./$types";
 import { z } from "zod";
 import { error } from "@sveltejs/kit";

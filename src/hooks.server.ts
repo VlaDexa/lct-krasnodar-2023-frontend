@@ -7,7 +7,6 @@ setVapidDetails("mailto:vgrechannik@gmail.com", env.VAPID_PUBLIC_KEY, env.VAPID_
 export const pool = createPool({
 connectionString: env.POSTGRES_URL,
 });
-pool.sql`DROP TABLE requests`  
 pool.sql`CREATE TABLE IF NOT EXISTS requests (
     id SERIAL PRIMARY KEY,
     endpoint VARCHAR(255) NOT NULL,

@@ -4,7 +4,12 @@ import web_push from "web-push";
 const {sendNotification} = web_push;
 import type { RequestHandler } from "./$types";
 import type { PushSubscriptionModel } from "../../../models";
+import type { Config } from '@sveltejs/adapter-vercel';
 
+export const config: Config = {
+	runtime: 'edge',
+	split: true,
+};
 const HACKATHON_END = Date.UTC(2023, 10, 11, 21);
 export const GET: RequestHandler = async () => {
 	const allPush = await pool.sql<QueryResultRow & PushSubscriptionModel>`SELECT * FROM requests`;

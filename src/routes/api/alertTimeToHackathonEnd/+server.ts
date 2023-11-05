@@ -7,7 +7,6 @@ import type { PushSubscriptionModel } from "../../../models";
 import type { Config } from '@sveltejs/adapter-vercel';
 
 export const config: Config = {
-	runtime: 'edge',
 	split: true,
 };
 const HACKATHON_END = Date.UTC(2023, 10, 11, 21);

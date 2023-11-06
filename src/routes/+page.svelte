@@ -37,7 +37,11 @@
 			.then(async function (subscription) {
 				let pushId = await get('push-id');
 				if (pushId) await fetch('/api/registerPush', { method: 'delete', body: pushId.toString() });
-				const register = await fetch('/api/registerPush', { method: 'post', body: JSON.stringify(subscription.toJSON()) });
+				const register = await fetch('/api/registerPush', {
+					method: 'post',
+					body: JSON.stringify(subscription.toJSON()),
+					headers: { 'Content-Type': 'application/json' }
+				});
 				const id = parseInt(await register.json());
 				set('push-id', id);
 				fetch('/api/sendNotification', {

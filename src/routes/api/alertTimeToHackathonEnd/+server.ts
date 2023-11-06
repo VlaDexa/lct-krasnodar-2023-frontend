@@ -20,7 +20,7 @@ export const GET: RequestHandler = async () => {
 		const milisLeft = HACKATHON_END - new Date().valueOf();
 		const hoursLeft = Math.floor(milisLeft / 1000 / 60 / 60);
 		const daysLeft = Math.floor(hoursLeft / 24);
-		const requests = allPush.rows.map(row => sendNotification({ endpoint: row.endpoint, keys: { p256dh: row.p256dh_key, auth: row.auth_key } }, `До конца ЛЦТ Краснодарский Край осталось ${daysLeft} дней, ${hoursLeft % 24} часов`, { topic: 'hack-end-alert' }));
+		const requests = allPush.rows.map(row => sendNotification({ endpoint: row.endpoint, keys: { p256dh: row.p256dh_key, auth: row.auth_key } }, `До конца ЛЦТ Краснодарский Край осталось ${daysLeft} дней, ${hoursLeft % 24} часов`, { topic: 'hack-end-alert', TTL: 60 * 60 }));
 		const resolvedRequests = await Promise.allSettled(requests);
 		let errored = 0;
 		for (const resolved of resolvedRequests) {

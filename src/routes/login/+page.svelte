@@ -5,7 +5,9 @@
 
 <style>
 	.fancy-bg {
-		background: url('/login-bd.svg');
+		background-image: url('/login-bd.svg');
 		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 </style>

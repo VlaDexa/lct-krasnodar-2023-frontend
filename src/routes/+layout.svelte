@@ -3,7 +3,7 @@
 </script>
 
 <main class="w-screen h-screen">
-	<slot />
+	<div style="display: contents"><slot /></div>
 </main>
 
 <style>

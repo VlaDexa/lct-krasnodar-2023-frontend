@@ -2,7 +2,7 @@ import web_push, { type PushSubscription } from "web-push";
 const { sendNotification } = web_push;
 import type { RequestHandler } from "./$types";
 import { z } from "zod";
-import { error } from "@sveltejs/kit";
+import { error, fail } from "@sveltejs/kit";
 
 export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	})
 	const parsed = pdata.safeParse(body);
 	if (!parsed.success) {
-		throw error(400, JSON.stringify(parsed.error.issues));
+		throw fail(400, parsed.error.format());
 	}
 	const { subscription, ttl } = parsed.data;
 	console.log(subscription);

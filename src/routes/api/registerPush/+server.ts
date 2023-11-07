@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { RequestHandler } from "./$types";
-import { error } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 import { pool } from "../../../hooks.server";
 
 const request_from = z.object({
@@ -22,15 +22,15 @@ async function insertUser(user: PushSubscription) {
 export const POST: RequestHandler = async ({ request }) => {
 	const parsed = request_from.safeParse(await request.json());
 	if (!parsed.success) {
-		throw error(400, parsed.error.issues.toString());
+		throw fail(400, parsed.error.format());
 	}
 	const { data } = parsed;
 	const id = await insertUser(data);
 	return new Response(id.toString(), { status: 201 });
 }
 
-export const DELETE: RequestHandler = async ({request}) => {
-	const id = parseInt(await request.text()); 
+export const DELETE: RequestHandler = async ({ request }) => {
+	const id = parseInt(await request.text());
 	await pool.sql`DELETE FROM requests WHERE id = ${id}`
-	return new Response(undefined, {status: 200});
+	return new Response(undefined, { status: 200 });
 }

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { get, set } from 'idb-keyval';
 	let granted: boolean | undefined;
-	async function handleClick(event: MouseEvent) {
+	async function handleClick(_event: MouseEvent) {
 		const promise = await Notification.requestPermission();
 		if (promise === 'granted') {
 			new Notification('Пасяб');
@@ -21,7 +21,7 @@
 		navigator.serviceWorker.ready
 			.then(async function (registration) {
 				// Use the PushManager to get the user's subscription to the push service.
-				const subscription = await registration.pushManager.getSubscription();
+				let subscription = await registration.pushManager.getSubscription();
 				// If a subscription was found, return it.
 				if (subscription) {
 					return subscription;
@@ -29,12 +29,10 @@
 				// Get the server's public key
 				const response = await fetch('/api/vapidKey');
 				const vapidPublicKey = await response.text();
-				return await registration.pushManager.subscribe({
+				subscription = await registration.pushManager.subscribe({
 					userVisibleOnly: true,
 					applicationServerKey: vapidPublicKey
 				});
-			})
-			.then(async function (subscription) {
 				let pushId = await get('push-id');
 				if (pushId) await fetch('/api/registerPush', { method: 'delete', body: pushId.toString() });
 				const register = await fetch('/api/registerPush', {
@@ -44,6 +42,9 @@
 				});
 				const id = parseInt(await register.json());
 				set('push-id', id);
+				return subscription;
+			})
+			.then(async function (subscription) {
 				fetch('/api/sendNotification', {
 					method: 'post',
 					headers: {

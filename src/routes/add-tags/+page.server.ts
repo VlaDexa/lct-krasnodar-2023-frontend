@@ -1,6 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import { Tag } from '../../models';
 import type { Actions, PageServerLoad } from './$types';
+import type { Config } from '@sveltejs/adapter-vercel';
 
 export const actions: Actions = {
 	default: async ({ request }) => {
@@ -11,6 +12,13 @@ export const actions: Actions = {
 		return { success: true, tag: tag_class.toPOJO() };
 	}
 };
+
+export const config: Config = {
+	isr: {
+		expiration: 60,
+		allowQuery: ['tag'],
+	}
+}
 
 export const load: PageServerLoad = async () => {
 	const classful = await Tag.getAllTags();

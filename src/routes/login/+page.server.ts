@@ -8,6 +8,6 @@ export const actions: Actions = {
 		const password = form.get('password')
 		if (!email || email === "") return fail(422, { email_error: "Введите корпоративную почту" });
 		if (!password || password === "") return fail(422, {email, password_error: "Неправильный пароль"});
-		throw redirect(303, "/");
+		throw redirect(303, "/home");
 	}
 }

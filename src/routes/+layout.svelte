@@ -14,7 +14,7 @@
 	});
 </script>
 
-<main class="w-[100vi] h-[100vb]">
+<main class="w-[100vi] min-h-[100dvh]">
 	<slot />
 </main>
 

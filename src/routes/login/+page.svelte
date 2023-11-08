@@ -9,7 +9,7 @@
 	<meta name="description" content="Вход на сайт" />
 </svelte:head>
 
-<section class="fancy-bg w-[100vi] h-[100vb] flex flex-col-reverse px-4">
+<section class="fancy-bg h-[100dvh] flex flex-col-reverse px-4">
 	<form method="POST" class="flex flex-col py-6 px-[46px] bg-white rounded-t-3xl items-center">
 		<h1 class="text-center font-semibold text-2xl text-[#475467]">Добро пожаловать!</h1>
 		<div class="my-[34px] flex flex-col items-center gap-5 w-full">

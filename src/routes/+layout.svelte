@@ -14,7 +14,7 @@
 	});
 </script>
 
-<main class="w-screen h-screen">
+<main class="w-[100vi] h-[100vb]">
 	<slot />
 </main>
 

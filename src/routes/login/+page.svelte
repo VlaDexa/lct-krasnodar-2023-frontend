@@ -10,9 +10,9 @@
 </svelte:head>
 
 <section class="fancy-bg h-[100dvh] flex flex-col-reverse px-4">
-	<form method="POST" class="flex flex-col py-6 px-[46px] bg-white rounded-t-3xl items-center">
+	<form method="POST" novalidate class="flex flex-col py-6 px-[46px] bg-white rounded-t-3xl items-center">
 		<h1 class="text-center font-semibold text-2xl text-[#475467]">Добро пожаловать!</h1>
-		<div class="my-[34px] flex flex-col items-center gap-5 w-full">
+		<div class="my-[34px] flex flex-col items-center gap-1 w-full">
 			<label class="gap-[2px] flex flex-col w-full">
 				<h2 class="font-medium text-lg text-[#667085]">Корпоративная почта</h2>
 				<div class="flex gap-1">
@@ -21,11 +21,20 @@
 						placeholder="xxxx@work.ru"
 						name="email"
 						id="email"
-						required
-						class="flex-grow rounded-lg bg-[#F2F4F7] pl-2 pb-3 placeholder-[#98A2B3]"
+						value={form?.email || ''}
+						class={`min-w-0 flex-grow rounded-lg bg-[#F2F4F7] pl-1 py-2 ${
+							form?.email_error ? `outline outline-1 outline-[#FDA29B]` : ``
+						}`}
 					/>
-					<img alt="!" src="/alert-circle.svg" class={form ? `` : `opacity-0`} />
+					<img alt="!" src="/alert-circle.svg" class={form?.email_error ? `` : `opacity-0`} />
 				</div>
+				<span class="text-sm text-[#D92D20] ml-1">
+					{#if form?.email_error}
+						{form.email_error}
+					{:else}
+						&nbsp;
+					{/if}
+				</span>
 			</label>
 			<label class="gap-[2px] flex flex-col w-full">
 				<h2 class="font-medium text-lg text-[#667085]">Пароль</h2>
@@ -34,13 +43,19 @@
 						type="password"
 						name="password"
 						id="password"
-						required
-						class={`flex-grow rounded-lg bg-[#F2F4F7] pl-2 pb-3 ${
-							form ? `outline outline-1 outline-[#FDA29B]` : ``
+						class={`min-w-0 flex-grow rounded-lg bg-[#F2F4F7] pl-1 py-2 ${
+							form?.password_error ? `outline outline-1 outline-[#FDA29B]` : ``
 						}`}
 					/>
-					<img alt="!" src="/alert-circle.svg" class={form ? `` : `opacity-0`} />
+					<img alt="!" src="/alert-circle.svg" class={form?.password_error ? `` : `opacity-0`} />
 				</div>
+				<span class="text-sm text-[#D92D20] ml-1">
+					{#if form?.password_error}
+						{form.password_error}
+					{:else}
+						&nbsp;
+					{/if}
+				</span>
 			</label>
 		</div>
 		<button class="text-white bg-[#1570EF] rounded-[14px] py-3 w-4/5 text-lg font-medium shdw"

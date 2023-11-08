@@ -10,7 +10,11 @@
 </svelte:head>
 
 <section class="fancy-bg h-[100dvh] flex flex-col-reverse px-4">
-	<form method="POST" novalidate class="flex flex-col py-6 px-[46px] bg-white rounded-t-3xl items-center">
+	<form
+		method="POST"
+		novalidate
+		class="flex flex-col py-6 px-[46px] bg-white rounded-t-3xl items-center"
+	>
 		<h1 class="text-center font-semibold text-2xl text-[#475467]">Добро пожаловать!</h1>
 		<div class="my-[34px] flex flex-col items-center gap-1 w-full">
 			<label class="gap-[2px] flex flex-col w-full">
@@ -66,8 +70,12 @@
 			<li>Техническая поддержка</li>
 		</ul>
 	</form>
-	<div class="flex flex-grow justify-center">
-		<img src="/favicon.svg" alt="Growth logo" class="h-full" />
+	<div
+		style:contain="paint"
+		style:view-transition-name="round"
+		class="grow flex justify-center"
+		style:background="no-repeat center/contain url(/favicon.svg)"
+	>
 	</div>
 </section>
 

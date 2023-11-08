@@ -1,9 +1,21 @@
 <script lang="ts">
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <main class="w-screen h-screen">
-	<div style="display: contents"><slot /></div>
+	<slot />
 </main>
 
 <style>

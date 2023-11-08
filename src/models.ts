@@ -64,3 +64,59 @@ export class Tag implements ITag {
 		}
 	}
 }
+
+interface IPost {
+	id: number,
+	title: string,
+	content: string,
+}
+
+export class Post implements IPost {
+	static {
+		pool.sql`CREATE TABLE IF NOT EXISTS posts (
+			id SERIAL PRIMARY KEY,
+			title VARCHAR(255),
+			content TEXT
+		);`
+	}
+	protected constructor(public id: number, public title: string, public content: string) { }
+
+	public static async getPosts(limit?: number, offset?: number): Promise<Post[]> {
+		const rows = await pool.sql<IPost>`SELECT * FROM posts ORDER BY id ${limit === undefined ? '' : `LIMIT ${limit}`} ${offset === undefined ? '' : `OFFSET ${offset}`}`;
+		return rows.rows.map(row => new Post(row.id, row.title, row.content));
+	}
+}
+
+interface ITagfulPost extends IPost {
+	tags: ITag[]
+}
+
+export class TagfulPost extends Post implements ITagfulPost {
+	static {
+		pool.sql`CREATE TABLE IF NOT EXISTS post_tags (
+		post_id INT REFERENCES posts(id),
+		tag_id INT REFERENCES tags(id);`;
+	}
+
+	private constructor(id: number, title: string, content: string, public tags: Tag[]) { super(id, title, content); }
+
+	public static async fromPost(post: Post): Promise<TagfulPost> { }
+
+	public async getPosts(limit?: number, offset?: number): Promise<TagfulPost[]> {
+		const rows = await pool.sql<IPost & {tag_name: string}>`SELECT
+			p.id AS post_id,
+			p.title AS post_title,
+				p.content AS post_content,
+				t.tag_name
+			FROM
+				posts p
+				JOIN post_tags pt ON p.id = pt.post_id
+				JOIN tags t ON pt.tag_id = t.id
+			WHERE
+				p.id = your_post_id;`
+		const posts: TagfulPost[] = [];
+		for (const row of rows.rows) {
+		}
+		return posts
+	}
+}

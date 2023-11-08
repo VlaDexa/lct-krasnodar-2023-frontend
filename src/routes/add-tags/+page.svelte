@@ -14,6 +14,7 @@
 			required
 			id="tag"
 			class="border-2 border-green-500 px-2 py-1 rounded-full"
+			placeholder="Крутой текст"
 		/>
 		<button
 			type="submit"

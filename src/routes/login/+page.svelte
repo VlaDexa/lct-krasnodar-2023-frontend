@@ -51,7 +51,9 @@
 			<li>Техническая поддержка</li>
 		</ul>
 	</form>
-	<img src="/favicon.svg" alt="Growth logo" class="flex-grow"/>
+	<div class="flex flex-grow justify-center">
+		<img src="/favicon.svg" alt="Growth logo" class="h-full" />
+	</div>
 </section>
 
 <style>

@@ -12,7 +12,7 @@
 <section
 	style:contain="paint"
 	style:view-transition-name="round"
-	style:background-image="url(/level.svg)"
+	style:background-image="url($kit/images/level.svg)"
 	style:background-position="50% 100%"
 	style:background-repeat="no-repeat"
 	style:line-height="28px"
@@ -59,29 +59,29 @@
 <style>
 	@font-face {
 		font-family: 'Igra Sans';
-		src: url('/IgraSans.otf') format('opentype');
+		src: url('$lib/fonts/IgraSans.otf') format('opentype');
 	}
 
 	.leaf {
-		background-image: url(/leaf.svg);
+		background-image: url($lib/images/leaf.svg?width=100);
 	}
 
 	.xp {
-		background-image: url(/xp.svg);
+		background-image: url($lib/images/xp.svg?width=100);
 		background-repeat: no-repeat;
 		background-position-x: center;
 		background-position-y: 10%;
 	}
 
 	.trophy {
-		background-image: url(/trophy.svg);
+		background-image: url($lib/images/trophy.svg?width=100);
 		background-repeat: no-repeat;
 		background-position-x: right;
 		background-position-y: 10%;
 	}
 
 	.fancy-bg {
-		background-image: url('/home-bg.svg');
+		background-image: url('$lib/images/home-bg.svg');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center top;

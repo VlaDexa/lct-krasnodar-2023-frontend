@@ -14,7 +14,7 @@
 	});
 </script>
 
-<main class="w-[100vi] min-h-[100dvh]">
+<main class="overflow-x-hidden w-[100vi] min-h-[100dvh]">
 	<slot />
 </main>
 

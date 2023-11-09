@@ -20,7 +20,8 @@
 	</h1>
 	<p aria-label="Количество опыта" class="text-base">100 xp осталось</p>
 </section>
-<div class="fancy-bg pt-[10px] pb-10 flex flex-col gap-5 px-2">
+
+<main class="fancy-bg pt-[10px] pb-10 flex flex-col gap-5 px-2">
 	<section class="px-6 py-[10px] rounded-3xl bg-white">
 		<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Мои достижения</h2>
 		<p class="text-sm text-[#667085] font-normal mt-1">
@@ -50,7 +51,7 @@
 			<img src="/arrow-right.svg" alt="" class="" />
 		</a>
 	</section>
-</div>
+</main>
 
 <style>
 	@font-face {

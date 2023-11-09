@@ -10,13 +10,7 @@
 
 <!-- Level circle -->
 <section
-	style:contain="paint"
-	style:view-transition-name="round"
-	style:background-image="url($kit/images/level.svg)"
-	style:background-position="50% 100%"
-	style:background-repeat="no-repeat"
-	style:line-height="28px"
-	class="my-[30px] py-32 text-center flex-col justify-center flex text-[#1570EF] font-normal"
+	class="level-round my-[30px] py-32 text-center flex-col justify-center flex text-[#1570EF] font-normal"
 >
 	<h1 style:font-size="32px" style:font-family="Igra Sans">
 		<span style:font-size="64px">0</span><br />уровень
@@ -60,6 +54,15 @@
 	@font-face {
 		font-family: 'Igra Sans';
 		src: url('$lib/fonts/IgraSans.otf') format('opentype');
+	}
+
+	.level-round {
+		contain: paint;
+		view-transition-name: round;
+		background-image: url($lib/images/level.svg);
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+		line-height: 28px;
 	}
 
 	.leaf {

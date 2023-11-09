@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { slide } from "svelte/transition";
+	import { fly, slide } from 'svelte/transition';
 
+	export let sideMenuOpened = false;
 	let profileMenuOpened = false;
+	$: profileMenuOpened && sideMenuOpened && (profileMenuOpened = !sideMenuOpened);
 </script>
 
 <nav class="py-2 px-[30px] flex flex-row border-b border-[#98A2B3] relative">
-	<img src="/menu.svg" alt="Menu" />
+	<button on:click={() => (sideMenuOpened = !sideMenuOpened)}
+		><img src="/menu.svg" alt="Menu" class="transition-all" class:blueit={sideMenuOpened} /></button
+	>
 	<img src="/bell.svg" alt="Notifications" class="ml-auto" />
 	<button
 		class="ml-[22px] flex gap-2 group"
@@ -21,12 +25,21 @@
 		/>
 	</button>
 	{#if profileMenuOpened}
-		<nav class="profileNav" transition:slide={{duration: 300, axis: 'y'}}>
+		<nav class="profileNav" transition:slide={{ duration: 300, axis: 'y' }}>
 			<ul class="flex flex-col gap-[14px]">
 				<li>Достижения</li>
 				<li>Заметки</li>
 				<li>Настройки</li>
 				<li>Выход</li>
+			</ul>
+		</nav>
+	{:else if sideMenuOpened}
+		<nav class="sideNav">
+			<ul>
+				<li transition:fly={{ delay: 0, x: -100 }}>Главная</li>
+				<li transition:fly={{ delay: 50, x: -100 }}>Моя адаптация</li>
+				<li transition:fly={{ delay: 100, x: -100 }}>Файлы</li>
+				<li transition:fly={{ delay: 150, x: -100 }}>Календарь</li>
 			</ul>
 		</nav>
 	{/if}
@@ -36,6 +49,28 @@
 	.blueit {
 		filter: brightness(0) saturate(100%) invert(40%) sepia(85%) saturate(4575%) hue-rotate(205deg)
 			brightness(96%) contrast(96%);
+	}
+
+	.sideNav {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0px;
+		font-size: 14px;
+		font-weight: 400;
+		color: #475467;
+		z-index: 2;
+	}
+
+	.sideNav ul {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.sideNav > ul > li {
+		background-color: white;
+		border-radius: 0px 10px 10px 0px;
+		padding: 4px 30px;
 	}
 
 	.profileNav {

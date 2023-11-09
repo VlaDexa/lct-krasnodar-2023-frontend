@@ -82,7 +82,7 @@
 
 <style>
 	.fancy-bg {
-		background-image: url('/login-bd.svg');
+		background-image: url('$lib/images/login-bd.svg?w=300;500;700;900;1100;2000&format=webp');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;

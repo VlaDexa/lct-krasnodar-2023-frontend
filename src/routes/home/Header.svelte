@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { fly, slide } from 'svelte/transition';
+	import bell from '$lib/images/bell.svg';
+	import chevron from '$lib/images/chevron.svg';
+	import profile from '$lib/images/profile.svg';
+	import menu from '$lib/images/menu.svg';
 
 	export let sideMenuOpened = false;
 	let profileMenuOpened = false;
@@ -8,16 +12,16 @@
 
 <nav class="py-2 px-[30px] flex flex-row border-b border-[#98A2B3] relative">
 	<button on:click={() => (sideMenuOpened = !sideMenuOpened)}
-		><img src="/menu.svg" alt="Menu" class="transition-all" class:blueit={sideMenuOpened} /></button
+		><img src={menu} alt="Menu" class="transition-all" class:blueit={sideMenuOpened} /></button
 	>
-	<img src="/bell.svg" alt="Notifications" class="ml-auto" />
+	<img src={bell} alt="Notifications" class="ml-auto" />
 	<button
 		class="ml-[22px] flex gap-2 group"
 		on:click={() => (profileMenuOpened = !profileMenuOpened)}
 	>
-		<img class:blueit={profileMenuOpened} src="/profile.svg" alt="Profile" />
+		<img class:blueit={profileMenuOpened} src={profile} alt="Profile" />
 		<img
-			src="/chevron.svg"
+			src={chevron}
 			alt="Exit"
 			class:blueit={profileMenuOpened}
 			class:rotate-180={profileMenuOpened}

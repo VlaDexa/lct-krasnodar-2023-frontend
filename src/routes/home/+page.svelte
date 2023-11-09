@@ -1,4 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import arrowRight from '$lib/images/arrow-right.svg';
+	import calendar from '$lib/images/calendar.webp';
+</script>
 
 <svelte:head>
 	<title>Главная</title>
@@ -37,18 +40,18 @@
 			class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
 		>
 			Перейти
-			<img src="/arrow-right.svg" alt="" class="" />
+			<img src={arrowRight} alt="" class="" />
 		</a>
 	</section>
 	<section class="px-6 py-[10px] rounded-3xl bg-white">
 		<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Календарь</h2>
-		<img src="/calendar.webp" alt="Calendar" class="mt-3" />
+		<img src={calendar} alt="Calendar" class="mt-3" />
 		<a
 			href="http://google.com"
 			class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
 		>
 			Перейти
-			<img src="/arrow-right.svg" alt="" class="" />
+			<img src={arrowRight} alt="" class="" />
 		</a>
 	</section>
 </main>

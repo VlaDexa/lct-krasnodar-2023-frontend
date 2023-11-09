@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ActionData } from './$types';
+	import alertCircle from "$lib/images/alert-circle.svg";
 
 	export let form: ActionData;
 </script>
@@ -30,7 +31,7 @@
 							form?.email_error ? `outline outline-1 outline-[#FDA29B]` : ``
 						}`}
 					/>
-					<img alt="!" src="/alert-circle.svg" class={form?.email_error ? `` : `opacity-0`} />
+					<img alt="!" src={alertCircle} class={form?.email_error ? `` : `opacity-0`} />
 				</div>
 				<span class="text-sm text-[#D92D20] ml-1">
 					{#if form?.email_error}
@@ -51,7 +52,7 @@
 							form?.password_error ? `outline outline-1 outline-[#FDA29B]` : ``
 						}`}
 					/>
-					<img alt="!" src="/alert-circle.svg" class={form?.password_error ? `` : `opacity-0`} />
+					<img alt="!" src={alertCircle} class={form?.password_error ? `` : `opacity-0`} />
 				</div>
 				<span class="text-sm text-[#D92D20] ml-1">
 					{#if form?.password_error}

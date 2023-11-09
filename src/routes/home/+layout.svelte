@@ -10,7 +10,7 @@
 
 <Header bind:sideMenuOpened={menuOpened} />
 {#if menuOpened}
-	<div class="dark" transition:fade={{duration: 400}}></div>
+	<div class="dark" transition:fade={{ duration: 400 }} on:click={() => (menuOpened = false)} role="presentation"></div>
 {/if}
 <slot />
 <Footer />

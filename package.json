@@ -32,6 +32,7 @@
 		"typescript": "^5.2.2",
 		"typescript-svelte-plugin": "^0.3.34",
 		"vite": "^4.5.0",
+		"vite-imagetools": "^6.2.3",
 		"vitest": "^0.25.8",
 		"web-vitals": "^3.5.0"
 	},

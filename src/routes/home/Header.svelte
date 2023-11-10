@@ -18,16 +18,25 @@
 	<div class="max-lg:hidden flex flex-row gap-12 xl:gap-[97px] 2xl:gap-[184px] lg:m-auto">
 		<a href="/home" class="text-[#1570EF] text-4xl font-medium">growth</a>
 		<div class="flex flex-row gap-9 text-3xl font-normal text-[#667085]">
-			<a class:text-[#475467]={get(page).url.pathname === '/home'} href="/home">Главная</a>
+			<a
+				class:text-[#475467]={get(page).url.pathname === '/home'}
+				class:font-medium={get(page).url.pathname === '/home'}
+				href="/home">Главная</a
+			>
 			<a
 				class:text-[#475467]={get(page).url.pathname === '/home/adaptation'}
 				class:font-medium={get(page).url.pathname === '/home/adaptation'}
 				href="/home/adaptation">Адаптация</a
 			>
-			<a class:text-[#475467]={get(page).url.pathname === '/home/files'} href="/home/files">Файлы</a
+			<a
+				class:text-[#475467]={get(page).url.pathname === '/home/files'}
+				class:font-medium={get(page).url.pathname === '/home/files'}
+				href="/home/files">Файлы</a
 			>
-			<a class:text-[#475467]={get(page).url.pathname === '/home/calendar'} href="/home/calendar"
-				>Календарь</a
+			<a
+				class:text-[#475467]={get(page).url.pathname === '/home/calendar'}
+				class:font-medium={get(page).url.pathname === '/home/calendar'}
+				href="/home/calendar">Календарь</a
 			>
 		</div>
 		<button

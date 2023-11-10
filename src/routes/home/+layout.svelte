@@ -17,7 +17,7 @@
 
 <style>
 	.dark {
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(52, 64, 84, 0.20);;
 		width: 100%;
 		height: 100%;
 		position: fixed;

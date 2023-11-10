@@ -13,8 +13,9 @@
 </script>
 
 <nav
-	class="py-2 px-[30px] flex flex-row max-lg:border-b border-[#98A2B3] relative lg:shdw lg:mx-5 xl:mx-[100px] 2xl:mx-[200px] lg:mt-5 lg:rounded-3xl lg:py-[14px]"
+	class="py-2 px-[30px] lg:bg-white flex flex-row max-lg:border-b border-[#98A2B3] relative shdw lg:mx-5 xl:mx-[100px] 2xl:mx-[200px] lg:mt-5 lg:rounded-3xl lg:py-[14px]"
 >
+	<!-- PC Header -->
 	<div class="max-lg:hidden flex flex-row gap-12 xl:gap-[97px] 2xl:gap-[184px] lg:m-auto">
 		<a href="/home" class="text-[#1570EF] text-4xl font-medium">growth</a>
 		<div class="flex flex-row gap-9 text-3xl font-normal text-[#667085]">
@@ -53,6 +54,7 @@
 			/>
 		</button>
 	</div>
+	<!-- Mobile Header -->
 	<div class="lg:hidden">
 		<button on:click={() => (sideMenuOpened = !sideMenuOpened)}
 			><img src={menu} alt="Menu" class="transition-all" class:blueit={sideMenuOpened} /></button
@@ -113,9 +115,8 @@
 	{/if}
 </nav>
 
-<style lang="postcss">
-	@tailwind components;
-	@layer components {
+<style>
+	@media only screen and (min-width: 1024px) {
 		.shdw {
 			box-shadow:
 				0px 2px 4px 0px rgba(79, 79, 79, 0.1),

@@ -9,46 +9,48 @@
 </svelte:head>
 
 <!-- Level circle -->
-<section
-	class="level-round my-[30px] py-32 text-center flex-col justify-center flex text-[#1570EF] font-normal"
->
-	<h1 style:font-size="32px" style:font-family="Igra Sans">
-		<span style:font-size="64px">0</span><br />уровень
-	</h1>
-	<p aria-label="Количество опыта" class="text-base">100 xp осталось</p>
-</section>
+<div class="lg:hidden">
+	<section
+		class="level-round my-[30px] py-32 text-center flex-col justify-center flex text-[#1570EF] font-normal"
+	>
+		<h1 style:font-size="32px" style:font-family="Igra Sans">
+			<span style:font-size="64px">0</span><br />уровень
+		</h1>
+		<p aria-label="Количество опыта" class="text-base">100 xp осталось</p>
+	</section>
 
-<main class="fancy-bg pt-[10px] pb-10 flex flex-col gap-5 px-2">
-	<section class="px-6 py-[10px] rounded-3xl bg-white">
-		<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Мои достижения</h2>
-		<p class="text-sm text-[#667085] font-normal mt-1">
-			У тебя пока нет достижений, но вместе со стараниями приходит успех!
-		</p>
-		<ul class="flex justify-evenly mt-2 gap-2">
-			<li class="leaf shdw achiv">Первые побеги</li>
-			<li class="xp shdw achiv">Stonks!</li>
-			<li class="trophy shdw achiv">И другие</li>
-		</ul>
-		<a
-			href="http://google.com"
-			class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
-		>
-			Перейти
-			<img src={arrowRight} alt="" class="" />
-		</a>
-	</section>
-	<section class="px-6 py-[10px] rounded-3xl bg-white">
-		<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Календарь</h2>
-		<img src={calendar} alt="Calendar" class="mt-3" />
-		<a
-			href="http://google.com"
-			class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
-		>
-			Перейти
-			<img src={arrowRight} alt="" class="" />
-		</a>
-	</section>
-</main>
+	<main class="fancy-bg pt-[10px] pb-10 flex flex-col gap-5 px-2">
+		<section class="px-6 py-[10px] rounded-3xl bg-white">
+			<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Мои достижения</h2>
+			<p class="text-sm text-[#667085] font-normal mt-1">
+				У тебя пока нет достижений, но вместе со стараниями приходит успех!
+			</p>
+			<ul class="flex justify-evenly mt-2 gap-2">
+				<li class="leaf shdw achiv">Первые побеги</li>
+				<li class="xp shdw achiv">Stonks!</li>
+				<li class="trophy shdw achiv">И другие</li>
+			</ul>
+			<a
+				href="http://google.com"
+				class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
+			>
+				Перейти
+				<img src={arrowRight} alt="" class="" />
+			</a>
+		</section>
+		<section class="px-6 py-[10px] rounded-3xl bg-white">
+			<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Календарь</h2>
+			<img src={calendar} alt="Calendar" class="mt-3" />
+			<a
+				href="http://google.com"
+				class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
+			>
+				Перейти
+				<img src={arrowRight} alt="" class="" />
+			</a>
+		</section>
+	</main>
+</div>
 
 <style>
 	@font-face {
@@ -88,6 +90,12 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center top;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.fancy-bg {
+			background-image: url($lib/images/background.webp);
+		}
 	}
 
 	.shdw {

@@ -8,16 +8,29 @@
 		(window.onscroll = menuOpened ? () => window.scrollTo(0, 0) : () => {});
 </script>
 
-<Header bind:sideMenuOpened={menuOpened} />
-{#if menuOpened}
-	<div class="dark" transition:fade={{ duration: 400 }} on:click={() => (menuOpened = false)} role="presentation"></div>
-{/if}
-<slot />
+<div class="bigScreenBg block">
+	<Header bind:sideMenuOpened={menuOpened} />
+	{#if menuOpened}
+		<div
+			class="dark"
+			transition:fade={{ duration: 400 }}
+			on:click={() => (menuOpened = false)}
+			role="presentation"
+		></div>
+	{/if}
+	<slot />
+</div>
 <Footer />
 
 <style>
+	@media only screen and (min-width: 1024px) {
+		.bigScreenBg {
+			background-image: url($lib/images/background.webp);
+		}
+	}
+
 	.dark {
-		background-color: rgba(52, 64, 84, 0.20);;
+		background-color: rgba(52, 64, 84, 0.2);
 		width: 100%;
 		height: 100%;
 		position: fixed;

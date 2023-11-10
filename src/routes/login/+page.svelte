@@ -12,7 +12,7 @@
 </svelte:head>
 
 <section
-	class="fancy-bg h-[100dvh] flex flex-col-reverse lg:flex-row lg:items-center lg:px-[200px] lg:gap-[15%] px-4"
+	class="fancy-bg h-[100dvh] flex flex-col-reverse lg:flex-row lg:items-center lg:px-5 xl:px-[100px] 2xl:px-[200px] lg:gap-[5%] xl:gap-[10%] 2xl:gap-[15%] px-4"
 >
 	<form
 		method="POST"

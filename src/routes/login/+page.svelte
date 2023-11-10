@@ -49,19 +49,21 @@
 				</span>
 			</label>
 			<label class="gap-[2px] flex flex-col w-full">
-				<h2 class="font-medium text-lg lg:text-4xl text-[#667085] lg:[line-height:56px]">
-					Пароль
-				</h2>
+				<h2 class="font-medium text-lg lg:text-4xl text-[#667085] lg:[line-height:56px]">Пароль</h2>
 				<div class="flex gap-1 lg:mt-1">
 					<input
 						type="password"
 						name="password"
 						id="password"
-						class={`min-w-0 flex-grow rounded-lg bg-[#F2F4F7] pl-1 lg:pl-2 py-2 lg:text-[28px] ${
+						class={`min-w-0 flex-grow rounded-lg lg:rounded-2xl bg-[#F2F4F7] pl-1 lg:pl-2 py-2 lg:text-[28px] ${
 							form?.password_error ? `outline outline-1 outline-[#FDA29B]` : ``
 						}`}
 					/>
-					<img alt="!" src={alertCircle} class={form?.password_error ? `lg:w-[48px] lg:py-1` : `opacity-0`} />
+					<img
+						alt="!"
+						src={alertCircle}
+						class={form?.password_error ? `lg:w-[48px] lg:py-1` : `opacity-0`}
+					/>
 				</div>
 				<span class="text-sm lg:text-[28px] text-[#D92D20] ml-1 lg:mt-[10px]">
 					{#if form?.password_error}

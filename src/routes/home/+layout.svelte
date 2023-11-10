@@ -26,6 +26,9 @@
 	@media only screen and (min-width: 1024px) {
 		.bigScreenBg {
 			background-image: url($lib/images/background.webp);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
 		}
 	}
 

@@ -1,10 +1,6 @@
 <script lang="ts">
 	import type { ActionData } from './$types';
 	import alertCircle from '$lib/images/alert-circle.svg';
-	import adaptation from '$lib/images/adapt.svg';
-	import gamef from '$lib/images/gamef.svg';
-	import results from '$lib/images/results.svg';
-	import adapts from '$lib/images/adapts.svg';
 	import cards from '$lib/images/cards.svg';
 
 	export let form: ActionData;
@@ -108,11 +104,6 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
-	}
-
-	.cards img {
-		width: min-content;
-		height: min-content;
 	}
 
 	@media only screen and (min-width: 1024px) {

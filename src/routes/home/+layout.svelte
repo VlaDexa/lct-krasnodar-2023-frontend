@@ -50,11 +50,11 @@
 	});
 </script>
 
-<div class="bigScreenBg block">
+<div class="flex flex-col grow bigScreenBg">
 	<Header bind:sideMenuOpened={menuOpened} />
 	{#if menuOpened}
 		<div
-			class="dark"
+			class="dark grow"
 			transition:fade={{ duration: 400 }}
 			on:click={() => (menuOpened = false)}
 			role="presentation"

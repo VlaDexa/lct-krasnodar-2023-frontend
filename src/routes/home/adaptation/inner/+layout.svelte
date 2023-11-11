@@ -11,7 +11,7 @@
 	];
 </script>
 
-<div class="flex flex-row px-5 py-10 xl:px-[100px] 2xl:px-[200px]">
+<div class="flex grow flex-row px-5 py-10 xl:px-[100px] 2xl:px-[200px]">
 	<nav class="flex flex-col gap-5" style:view-transition-name="adapt-nav">
 		<a href="/home/adaptation" class="back flex flex-row gap-3 px-5 py-1">
 			<img src={chevronLeftDouble} alt="Back" />
@@ -28,7 +28,7 @@
 			{/each}
 		</nav>
 	</nav>
-	<div class="grow">
+	<div class="grow flex flex-col">
 		<slot />
 	</div>
 </div>

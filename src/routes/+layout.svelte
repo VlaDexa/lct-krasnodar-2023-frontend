@@ -14,7 +14,7 @@
 	});
 </script>
 
-<main class="w-[100vi] min-h-[100dvh]">
+<main class="flex flex-col w-[100vi] min-h-[100dvh]">
 	<slot />
 </main>
 

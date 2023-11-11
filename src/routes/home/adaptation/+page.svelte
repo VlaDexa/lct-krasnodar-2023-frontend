@@ -16,7 +16,7 @@
 	<section class="flex flex-col">
 		<img src={secHeader} alt="" />
 		<div class="px-7 py-5">
-			<h2>Вся информация о компании</h2>
+			<h2 style:view-transition-name="adapt-header">Вся информация о компании</h2>
 			<p class="awards">Награды</p>
 			<ul class="mt-5 flex flex-row gap-5">
 				<li><img src={leafBlue} alt="Первые побеги" /></li>

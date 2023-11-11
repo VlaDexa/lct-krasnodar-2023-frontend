@@ -1,17 +1,19 @@
 <script>
 	import arrowShort from '$lib/images/arrow-short.svg';
 
+	/** @type {string} */
 	export let title;
+	/** @type {string} */
 	export let content;
-	export click
+	export let click = () => {};
 </script>
 
 <li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
 	<div class="flex grow flex-col gap-1">
-		<h3 class="text-[12px] lg:text-[24px] smaller">{title}</h3>
-		<p class="text-sm font-medium lg:text-[28px] bigger">{content}</p>
+		<h3 class="smaller text-[12px] lg:text-[24px]">{title}</h3>
+		<p class="bigger text-sm font-medium lg:text-[28px]">{content}</p>
 	</div>
-	<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
+	<button on:click={click} class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
 		><img src={arrowShort} alt="Перейти" /></button
 	>
 </li>

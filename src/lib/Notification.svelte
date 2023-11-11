@@ -1,8 +1,9 @@
 <script>
 	import arrowShort from '$lib/images/arrow-short.svg';
 
-	export let title = '';
-	export let content = '';
+	export let title;
+	export let content;
+	export click
 </script>
 
 <li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">

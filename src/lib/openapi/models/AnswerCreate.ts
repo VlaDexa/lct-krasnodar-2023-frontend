@@ -4,8 +4,7 @@
 /* eslint-disable */
 
 export type AnswerCreate = {
-    question_id?: string;
-    is_checked?: boolean;
-    text?: string;
+	question_id?: string;
+	is_checked?: boolean;
+	text?: string;
 };
-

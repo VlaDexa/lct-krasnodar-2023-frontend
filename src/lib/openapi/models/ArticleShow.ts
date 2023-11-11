@@ -6,12 +6,11 @@
 import type { QuestionBase } from './QuestionBase';
 
 export type ArticleShow = {
-    name: string;
-    expire_at: string;
-    content: string;
-    created_by: string;
-    created_at: string;
-    id: string;
-    questions: Array<QuestionBase>;
+	name: string;
+	expire_at: string;
+	content: string;
+	created_by: string;
+	created_at: string;
+	id: string;
+	questions: Array<QuestionBase>;
 };
-

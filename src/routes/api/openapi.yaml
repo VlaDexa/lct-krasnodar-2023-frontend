@@ -30,9 +30,9 @@ components:
   schemas:
     Notification:
       required:
-      - summary
-      - content
-      - message_id
+        - summary
+        - content
+        - message_id
       type: object
       properties:
         summary:
@@ -57,7 +57,7 @@ components:
     Error:
       type: object
       required:
-      - message
+        - message
       properties:
         message:
           type: string
@@ -78,7 +78,7 @@ components:
                 description: Он скоро
                 message_id: lct_end
                 username: vladexa
-                
+
   responses:
     Ok:
       description: Okay message with barely any useful info
@@ -99,7 +99,7 @@ components:
           examples:
             wrongMimeType:
               summary: Неправильный тип данных
-              value: 
+              value:
                 message: Wrong MIME type!
 
 servers:

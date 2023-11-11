@@ -8,6 +8,8 @@
 	import { get } from 'svelte/store';
 
 	export let sideMenuOpened = false;
+	let path = get(page).url.pathname;
+	page.subscribe((page) => (path = page.url.pathname));
 	let profileMenuOpened = false;
 	$: profileMenuOpened && sideMenuOpened && (profileMenuOpened = !sideMenuOpened);
 </script>
@@ -15,28 +17,26 @@
 <nav class="lg:pt-5">
 	<!-- PC Header -->
 	<div
-		class="shdw flex flex-row gap-12 bg-white max-lg:hidden lg:m-auto lg:mx-5 justify-center lg:rounded-3xl lg:py-[14px] xl:mx-[100px] xl:gap-[97px] 2xl:mx-[200px] 2xl:gap-[184px]"
+		class="shdw flex flex-row justify-center gap-12 bg-white max-lg:hidden lg:m-auto lg:mx-5 lg:rounded-3xl lg:py-[14px] xl:mx-[100px] xl:gap-[97px] 2xl:mx-[200px] 2xl:gap-[184px]"
 	>
 		<a href="/home" class="text-4xl font-medium text-[#1570EF]">growth</a>
 		<div class="flex flex-row gap-9 text-3xl font-normal text-[#667085]">
-			<a
-				class:text-[#475467]={get(page).url.pathname === '/home'}
-				class:font-medium={get(page).url.pathname === '/home'}
-				href="/home">Главная</a
+			<a class:text-[#475467]={path === '/home'} class:font-medium={path === '/home'} href="/home"
+				>Главная</a
 			>
 			<a
-				class:text-[#475467]={get(page).url.pathname === '/home/adaptation'}
-				class:font-medium={get(page).url.pathname === '/home/adaptation'}
+				class:text-[#475467]={path === '/home/adaptation'}
+				class:font-medium={path === '/home/adaptation'}
 				href="/home/adaptation">Адаптация</a
 			>
 			<a
-				class:text-[#475467]={get(page).url.pathname === '/home/files'}
-				class:font-medium={get(page).url.pathname === '/home/files'}
+				class:text-[#475467]={path === '/home/files'}
+				class:font-medium={path === '/home/files'}
 				href="/home/files">Файлы</a
 			>
 			<a
-				class:text-[#475467]={get(page).url.pathname === '/home/calendar'}
-				class:font-medium={get(page).url.pathname === '/home/calendar'}
+				class:text-[#475467]={path === '/home/calendar'}
+				class:font-medium={path === '/home/calendar'}
 				href="/home/calendar">Календарь</a
 			>
 		</div>
@@ -86,28 +86,14 @@
 	{:else if sideMenuOpened}
 		<nav class="sideNav">
 			<ul>
-				<li
-					class:active={get(page).url.pathname === '/home'}
-					transition:fly={{ delay: 0, x: -100 }}
-				>
-					Главная
-				</li>
-				<li
-					class:active={get(page).url.pathname === '/home/adaptation'}
-					transition:fly={{ delay: 50, x: -100 }}
-				>
+				<li class:active={path === '/home'} transition:fly={{ delay: 0, x: -100 }}>Главная</li>
+				<li class:active={path === '/home/adaptation'} transition:fly={{ delay: 50, x: -100 }}>
 					Моя адаптация
 				</li>
-				<li
-					class:active={get(page).url.pathname === '/home/files'}
-					transition:fly={{ delay: 100, x: -100 }}
-				>
+				<li class:active={path === '/home/files'} transition:fly={{ delay: 100, x: -100 }}>
 					Файлы
 				</li>
-				<li
-					class:active={get(page).url.pathname === '/home/calendar'}
-					transition:fly={{ delay: 150, x: -100 }}
-				>
+				<li class:active={path === '/home/calendar'} transition:fly={{ delay: 150, x: -100 }}>
 					Календарь
 				</li>
 			</ul>
@@ -186,5 +172,24 @@
 
 	.profileNav li:active {
 		color: #1570ef;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.profileNav {
+			top: 96px;
+			right: 120px;
+		}
+	}
+
+	@media only screen and (min-width: 1280px) {
+		.profileNav {
+			right: 170px;
+		}
+	}
+
+	@media only screen and (min-width: 1536px) {
+		.profileNav {
+			right: 320px;
+		}
 	}
 </style>

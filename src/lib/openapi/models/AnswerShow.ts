@@ -4,9 +4,8 @@
 /* eslint-disable */
 
 export type AnswerShow = {
-    question_id?: string;
-    is_checked?: boolean;
-    text?: string;
-    id: string;
+	question_id?: string;
+	is_checked?: boolean;
+	text?: string;
+	id: string;
 };
-

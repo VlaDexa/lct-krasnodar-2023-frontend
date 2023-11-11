@@ -6,8 +6,7 @@
 import type { AchievementShow } from './AchievementShow';
 
 export type UserShow = {
-    user_id: string;
-    email: string;
-    achievements: Array<AchievementShow>;
+	user_id: string;
+	email: string;
+	achievements: Array<AchievementShow>;
 };
-

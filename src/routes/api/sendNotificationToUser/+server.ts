@@ -14,6 +14,11 @@ const Notification = z.object({
 	username: z.string(),
 });
 
+export type NotificationData = {
+	content: string,
+	summary: string,
+};
+
 export type Notifications = z.infer<typeof Notification>;
 
 export const POST: RequestHandler = async ({ request }) => {
@@ -31,7 +36,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			endpoint: row.endpoint, keys: {
 				auth: row.auth_key, p256dh: row.p256dh_key
 			}
-		}, notification.username, { topic: notification.message_id, TTL: notification.ttl }));
+		}, JSON.stringify({ content: notification.content, summary: notification.summary }), { topic: notification.message_id, TTL: notification.ttl }));
 	}
 	const donePushes = await Promise.allSettled(pushes);
 	let succeed = 0;

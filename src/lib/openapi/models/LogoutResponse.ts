@@ -4,6 +4,5 @@
 /* eslint-disable */
 
 export type LogoutResponse = {
-    success: string;
+	success: string;
 };
-

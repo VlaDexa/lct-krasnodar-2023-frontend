@@ -6,8 +6,7 @@
 import type { OptionCreate } from './OptionCreate';
 
 export type QuestionCreate = {
-    text: string;
-    options: Array<OptionCreate>;
-    article_id: string;
+	text: string;
+	options: Array<OptionCreate>;
+	article_id: string;
 };
-

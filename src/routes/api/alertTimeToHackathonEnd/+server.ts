@@ -6,6 +6,7 @@ import type { RequestHandler } from './$types';
 import type { PushSubscriptionModel } from '../../../models';
 import type { Config } from '@sveltejs/adapter-vercel';
 import { error } from '@sveltejs/kit';
+import type { NotificationData } from '../sendNotificationToUser/+server';
 
 export const config: Config = {
 	split: true
@@ -35,7 +36,11 @@ export const GET: RequestHandler = async () => {
 			if (resolved.status !== 'rejected') continue;
 			errored++;
 		}
-		return new Response(`Sent ${allPush.rowCount - errored} out of ${allPush.rowCount}`);
+		const data: NotificationData = {
+			content: `Sent ${allPush.rowCount - errored} out of ${allPush.rowCount}`,
+			summary: "AHTUNG",
+		};
+		return new Response(JSON.stringify(data));
 	} catch (e) {
 		throw error(500, 'Error while reading subscriber database');
 	}

@@ -10,7 +10,7 @@ export const pool = createPool({
 	connectionString: env.POSTGRES_URL
 });
 
-OpenAPI.BASE = "https://api.lapki.vladexa.ru:8000";
+OpenAPI.BASE = 'https://api.lapki.vladexa.ru:8000';
 setGCMAPIKey(env.GCM_API_KEY);
 setVapidDetails('mailto:vgrechannik@gmail.com', env.VAPID_PUBLIC_KEY, env.VAPID_PRIVATE_KEY);
 

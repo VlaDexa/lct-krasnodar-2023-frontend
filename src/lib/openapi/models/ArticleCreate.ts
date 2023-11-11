@@ -4,8 +4,7 @@
 /* eslint-disable */
 
 export type ArticleCreate = {
-    name: string;
-    expire_at: string;
-    content: string;
+	name: string;
+	expire_at: string;
+	content: string;
 };
-

@@ -4,6 +4,5 @@
 /* eslint-disable */
 
 export type OptionCreate = {
-    text: string;
+	text: string;
 };
-

@@ -4,9 +4,8 @@
 /* eslint-disable */
 
 export type AchievementShow = {
-    description: string;
-    title: string;
-    created_at: string;
-    id: string;
+	description: string;
+	title: string;
+	created_at: string;
+	id: string;
 };
-

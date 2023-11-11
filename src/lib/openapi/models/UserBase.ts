@@ -4,7 +4,6 @@
 /* eslint-disable */
 
 export type UserBase = {
-    email: string;
-    password: string;
+	email: string;
+	password: string;
 };
-

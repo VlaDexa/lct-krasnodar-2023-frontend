@@ -10,7 +10,7 @@ const request_from = z.object({
 		p256dh: z.string(),
 		auth: z.string()
 	}),
-	email: z.string(),
+	email: z.string()
 });
 
 export type PushSubscription = z.infer<typeof request_from>;

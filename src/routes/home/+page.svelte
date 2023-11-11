@@ -15,29 +15,27 @@
 		<p class="font mt-5 text-2xl text-[#667085]">
 			У тебя пока нет достижений, но вместе со стараниями приходит успех!
 		</p>
-		<ul class="mt-2 flex justify-evenly gap-2">
+		<ul class="mt-14 flex justify-evenly gap-2">
 			<li class="leaf shdw achiv">Первые побеги</li>
 			<li class="xp shdw achiv">Stonks!</li>
 			<li class="trophy shdw achiv">И другие</li>
 		</ul>
 		<a
 			href="http://google.com"
-			class="shdw ml-auto mt-4 flex w-fit items-center gap-[6px] rounded-xl bg-[#1570EF] px-[18px] py-[6px] text-lg font-medium text-white"
+			class="shdw ml-auto mt-8 flex w-fit items-center gap-[6px] rounded-xl bg-[#1570EF] px-[18px] py-[6px] text-4xl font-medium text-white"
 		>
 			Перейти
 			<img src={arrowRight} alt="" class="" />
 		</a>
 	</section>
 	<section
-		class="round-desktop my-[30px] flex flex-col justify-center py-32 text-center font-normal text-[#1570EF]"
+		class="round-desktop flex flex-col justify-center py-32 text-center font-normal text-[#1570EF]"
 	>
 		<h1 style:font-size="54px" style:font-family="Igra Sans">
 			<span style:font-size="108px">0</span><br />уровень
 		</h1>
 		<p aria-label="Количество опыта" class="text-2xl">100 xp осталось</p>
 	</section>
-
-	<section class="round-desktop text-center">babab</section>
 </git>
 
 <!-- Mobile Layout -->
@@ -109,6 +107,8 @@
 
 	.leaf {
 		background-image: url($lib/images/leaf.svg?width=100);
+		background-repeat: no-repeat;
+		background-position-x: right;
 	}
 
 	.xp {
@@ -132,17 +132,6 @@
 		background-position: center top;
 	}
 
-	@media only screen and (min-width: 1024px) {
-		.fancy-bg {
-			background-image: url($lib/images/background.webp);
-		}
-
-		.achiv {
-			width: 200px;
-			height: 200px;
-		}
-	}
-
 	.shdw {
 		box-shadow:
 			0px 1px 2px 0px rgba(79, 79, 79, 0.1),
@@ -163,5 +152,23 @@
 		font-size: 14px;
 		width: 100px;
 		height: 100px;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.fancy-bg {
+			background-image: url($lib/images/background.webp);
+		}
+
+		.achiv {
+			width: 200px;
+			height: 200px;
+			font-size: 28px;
+		}
+
+		.xp,
+		.leaf,
+		.trophy {
+			background-size: 100%;
+		}
 	}
 </style>

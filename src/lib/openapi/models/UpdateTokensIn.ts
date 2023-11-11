@@ -4,6 +4,5 @@
 /* eslint-disable */
 
 export type UpdateTokensIn = {
-    refresh_token: string;
+	refresh_token: string;
 };
-

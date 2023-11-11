@@ -52,3 +52,15 @@ export const POST: RequestHandler = async ({ request }) => {
 	for (const push of donePushes) succeed += push.status === 'rejected' ? 1 : 0;
 	return text(`Выслал ${succeed} из ${donePushes.length}`);
 };
+
+export const OPTIONS: RequestHandler = async () => {
+	return new Response(undefined, {
+		status: 200,
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "POST, OPTIONS",
+			"Access-Control-Allow-Headers": "Content-Type",
+			"Access-Control-Max-Age": "86400",
+		}
+	})
+}

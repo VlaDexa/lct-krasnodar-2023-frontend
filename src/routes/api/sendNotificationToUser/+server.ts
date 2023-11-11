@@ -50,5 +50,5 @@ export const POST: RequestHandler = async ({ request }) => {
 	const donePushes = await Promise.allSettled(pushes);
 	let succeed = 0;
 	for (const push of donePushes) succeed += push.status === 'rejected' ? 1 : 0;
-	return new Response(`Выслал ${succeed} из ${donePushes.length}`);
+	return text(`Выслал ${succeed} из ${donePushes.length}`);
 };

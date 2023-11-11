@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { RequestHandler } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, text } from '@sveltejs/kit';
 import { pool } from '../../../hooks.server';
 
 const request_from = z.object({
@@ -28,7 +28,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	}
 	const { data } = parsed;
 	const id = await insertUser(data);
-	return new Response(id.toString(), { status: 201 });
+	return text(id.toString(), { status: 201 });
 };
 
 export const DELETE: RequestHandler = async ({ request }) => {

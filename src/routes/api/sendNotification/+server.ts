@@ -2,7 +2,7 @@ import web_push, { type PushSubscription } from 'web-push';
 const { sendNotification } = web_push;
 import type { RequestHandler } from './$types';
 import { z } from 'zod';
-import { error, fail } from '@sveltejs/kit';
+import { error, fail, text } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
@@ -19,7 +19,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	console.log(subscription);
 	try {
 		await sendNotification(subscription as unknown as PushSubscription, null, { TTL: ttl });
-		return new Response('OK', { status: 201 });
+		return text('OK', { status: 201 });
 	} catch (e) {
 		throw error(500, "Couldn't send a notification");
 	}

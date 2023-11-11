@@ -42,7 +42,7 @@ export const GET: RequestHandler = async () => {
 			if (resolved.status !== 'rejected') continue;
 			errored++;
 		}
-		return new Response(`Sent ${allPush.rowCount - errored} out of ${allPush.rowCount}`);
+		return text(`Sent ${allPush.rowCount - errored} out of ${allPush.rowCount}`);
 	} catch (e) {
 		throw error(500, 'Error while reading subscriber database');
 	}

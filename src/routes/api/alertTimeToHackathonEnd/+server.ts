@@ -35,6 +35,7 @@ export const GET: RequestHandler = async () => {
 				{ topic: 'hack-end-alert', TTL: 60 * 60 }
 			)
 		);
+
 		const resolvedRequests = await Promise.allSettled(requests);
 		let errored = 0;
 		for (const resolved of resolvedRequests) {

@@ -5,6 +5,7 @@ import web_push from 'web-push';
 const { setVapidDetails, setGCMAPIKey } = web_push;
 import { createPool } from '@vercel/postgres';
 import { OpenAPI } from '$lib/openapi';
+import { redirect, type Handle } from '@sveltejs/kit';
 
 export const pool = createPool({
 	connectionString: env.POSTGRES_URL
@@ -22,3 +23,11 @@ await pool.sql`CREATE TABLE IF NOT EXISTS requests (
     auth_key VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL
 );`;
+
+export const handle: Handle = async ({ event, resolve }) => {
+	if (event.url.pathname.startsWith("/home")) {
+		if (!(event.cookies.get('access_token') && event.cookies.get('refresh_token') && event.cookies.get('email')))
+			throw redirect(303, "/login");
+	}
+	return await resolve(event);
+} 

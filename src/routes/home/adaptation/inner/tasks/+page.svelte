@@ -12,7 +12,7 @@
 
 <section>
 	<div class="w-[65%]">
-		<h2 class="mt-10">Задания</h2>
+		<h2>Задания</h2>
 		<ul class="mt-6 flex flex-col gap-4">
 			<Notification title="Новое задание:" content="Прочитать материал о компании" />
 		</ul>

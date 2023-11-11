@@ -29,5 +29,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 		if (!(event.cookies.get('access_token') && event.cookies.get('refresh_token') && event.cookies.get('email')))
 			throw redirect(303, "/login");
 	}
+	if (event.url.pathname === "/") throw redirect(303, "/home");
 	return await resolve(event);
 } 

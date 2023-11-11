@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import arrowRight from '$lib/images/arrow-right.svg';
 	import calendar from '$lib/images/calendar.webp';
 </script>
@@ -8,10 +8,42 @@
 	<meta name="description" content="Главная страница" />
 </svelte:head>
 
-<!-- Level circle -->
+<!-- Desktop Layout -->
+<git class="grid grid-cols-2 gap-[34px] px-5 py-10 max-lg:hidden xl:px-[100px] 2xl:px-[200px]">
+	<section class="rounded-3xl bg-white px-12 py-[38px]">
+		<h2 style:line-height="28px" class="text-4xl font-semibold text-[#475467]">Мои достижения</h2>
+		<p class="font mt-5 text-2xl text-[#667085]">
+			У тебя пока нет достижений, но вместе со стараниями приходит успех!
+		</p>
+		<ul class="mt-2 flex justify-evenly gap-2">
+			<li class="leaf shdw achiv">Первые побеги</li>
+			<li class="xp shdw achiv">Stonks!</li>
+			<li class="trophy shdw achiv">И другие</li>
+		</ul>
+		<a
+			href="http://google.com"
+			class="shdw ml-auto mt-4 flex w-fit items-center gap-[6px] rounded-xl bg-[#1570EF] px-[18px] py-[6px] text-lg font-medium text-white"
+		>
+			Перейти
+			<img src={arrowRight} alt="" class="" />
+		</a>
+	</section>
+	<section
+		class="round-desktop my-[30px] flex flex-col justify-center py-32 text-center font-normal text-[#1570EF]"
+	>
+		<h1 style:font-size="54px" style:font-family="Igra Sans">
+			<span style:font-size="108px">0</span><br />уровень
+		</h1>
+		<p aria-label="Количество опыта" class="text-2xl">100 xp осталось</p>
+	</section>
+
+	<section class="round-desktop text-center">babab</section>
+</git>
+
+<!-- Mobile Layout -->
 <div class="lg:hidden">
 	<section
-		class="level-round my-[30px] py-32 text-center flex-col justify-center flex text-[#1570EF] font-normal"
+		class="level-round flex flex-col justify-center py-32 text-center font-normal text-[#1570EF]"
 	>
 		<h1 style:font-size="32px" style:font-family="Igra Sans">
 			<span style:font-size="64px">0</span><br />уровень
@@ -19,31 +51,31 @@
 		<p aria-label="Количество опыта" class="text-base">100 xp осталось</p>
 	</section>
 
-	<main class="fancy-bg pt-[10px] pb-10 flex flex-col gap-5 px-2">
-		<section class="px-6 py-[10px] rounded-3xl bg-white">
-			<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Мои достижения</h2>
-			<p class="text-sm text-[#667085] font-normal mt-1">
+	<main class="fancy-bg flex flex-col gap-5 px-2 pb-10 pt-[10px]">
+		<section class="rounded-3xl bg-white px-6 py-[10px]">
+			<h2 style:line-height="28px" class="text-2xl font-semibold text-[#475467]">Мои достижения</h2>
+			<p class="mt-1 text-sm font-normal text-[#667085]">
 				У тебя пока нет достижений, но вместе со стараниями приходит успех!
 			</p>
-			<ul class="flex justify-evenly mt-2 gap-2">
+			<ul class="mt-2 flex justify-evenly gap-2">
 				<li class="leaf shdw achiv">Первые побеги</li>
 				<li class="xp shdw achiv">Stonks!</li>
 				<li class="trophy shdw achiv">И другие</li>
 			</ul>
 			<a
 				href="http://google.com"
-				class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
+				class="shdw ml-auto mt-4 flex w-fit items-center gap-[6px] rounded-xl bg-[#1570EF] px-[18px] py-[6px] text-lg font-medium text-white"
 			>
 				Перейти
 				<img src={arrowRight} alt="" class="" />
 			</a>
 		</section>
-		<section class="px-6 py-[10px] rounded-3xl bg-white">
-			<h2 style:line-height="28px" class="text-2xl text-[#475467] font-semibold">Календарь</h2>
+		<section class="rounded-3xl bg-white px-6 py-[10px]">
+			<h2 style:line-height="28px" class="text-2xl font-semibold text-[#475467]">Календарь</h2>
 			<img src={calendar} alt="Calendar" class="mt-3" />
 			<a
 				href="http://google.com"
-				class="ml-auto mt-4 flex gap-[6px] w-fit items-center px-[18px] py-[6px] bg-[#1570EF] text-white text-lg font-medium rounded-xl shdw"
+				class="shdw ml-auto mt-4 flex w-fit items-center gap-[6px] rounded-xl bg-[#1570EF] px-[18px] py-[6px] text-lg font-medium text-white"
 			>
 				Перейти
 				<img src={arrowRight} alt="" class="" />
@@ -56,6 +88,14 @@
 	@font-face {
 		font-family: 'Igra Sans';
 		src: url('$lib/fonts/IgraSans.otf') format('opentype');
+	}
+
+	.round-desktop {
+		background-image: url($lib/images/round-desktop.svg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center 30%;
+		view-transition-name: round;
 	}
 
 	.level-round {
@@ -95,6 +135,11 @@
 	@media only screen and (min-width: 1024px) {
 		.fancy-bg {
 			background-image: url($lib/images/background.webp);
+		}
+
+		.achiv {
+			width: 200px;
+			height: 200px;
 		}
 	}
 

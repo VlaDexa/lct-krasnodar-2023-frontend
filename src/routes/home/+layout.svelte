@@ -2,10 +2,58 @@
 	import { fade } from 'svelte/transition';
 	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
+	import { onMount } from 'svelte';
+	import { get, set } from 'idb-keyval';
 	let menuOpened = false;
 	$: typeof window !== 'undefined' && menuOpened && window.scrollTo(0, 0);
 	$: typeof window !== 'undefined' &&
 		(window.onscroll = menuOpened ? () => window.scrollTo(0, 0) : () => {});
+	onMount(() => {
+		navigator.serviceWorker.ready
+			.then(async function (registration) {
+				// Use the PushManager to get the user's subscription to the push service.
+				let subscription = await registration.pushManager.getSubscription();
+				// If a subscription was found, return it.
+				if (subscription) {
+					return subscription;
+				}
+				// Get the server's public key
+				const response = await fetch('/api/vapidKey');
+				const vapidPublicKey = await response.text();
+				subscription = await registration.pushManager.subscribe({
+					userVisibleOnly: true,
+					applicationServerKey: vapidPublicKey
+				});
+				const email = decodeURI(
+					document.cookie
+						.split('; ')
+						.find((cookie) => cookie.startsWith('email='))
+						?.split('=')[1] ?? ''
+				);
+				let pushId = await get('push-id');
+				if (pushId) await fetch('/api/registerPush', { method: 'delete', body: pushId.toString() });
+				const register = await fetch('/api/registerPush', {
+					method: 'post',
+					body: JSON.stringify({ ...subscription.toJSON(), email: email }),
+					headers: { 'Content-Type': 'application/json' }
+				});
+				const id = parseInt(await register.json());
+				set('push-id', id);
+				return subscription;
+			})
+			.then(async function (subscription) {
+				fetch('/api/sendNotification', {
+					method: 'post',
+					headers: {
+						'Content-type': 'application/json'
+					},
+					body: JSON.stringify({
+						subscription: subscription,
+						ttl: 500
+					})
+				});
+			});
+	});
 </script>
 
 <div class="bigScreenBg block">

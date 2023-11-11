@@ -23,7 +23,7 @@
 			</ul>
 			<p class="closest">Ближайший срок</p>
 			<div class="mt-4 flex flex-row justify-between">
-				<div class="deadline flex flex-row">
+				<div class="deadline flex flex-row p-2">
 					<img src={clock} alt="" />
 					<p>22 ноября</p>
 					<p>23:59</p>
@@ -35,7 +35,7 @@
 	{#if !closed}
 		<section class="col-span-2 flex">
 			<img src={bigSec} alt="" class="h-full" />
-			<div class="flex grow flex-col pt-9 pr-[30px]">
+			<div class="flex grow flex-col pr-[30px] pt-9">
 				<div class="flex flex-row justify-between">
 					<h2>Награды и опыт</h2>
 					<button> <img src={xClose} alt="Close" /> </button>

@@ -13,7 +13,7 @@
 	$: profileMenuOpened && sideMenuOpened && (profileMenuOpened = !sideMenuOpened);
 </script>
 
-<nav class="lg:pt-5">
+<nav style:view-transition-name="header" class="lg:pt-5">
 	<!-- PC Header -->
 	<div
 		class="shdw flex flex-row justify-center gap-12 bg-white max-lg:hidden lg:m-auto lg:mx-5 lg:rounded-3xl lg:py-[14px] xl:mx-[100px] xl:gap-[97px] 2xl:mx-[200px] 2xl:gap-[184px]"

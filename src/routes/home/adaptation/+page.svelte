@@ -7,6 +7,7 @@
 	import bigSec from '$lib/images/big-sec.svg';
 	import xClose from '$lib/images/x-close.svg';
 	import bigSecText from '$lib/images/big-sec-text.svg';
+	import { fade } from 'svelte/transition';
 
 	let closed = false;
 </script>
@@ -28,25 +29,28 @@
 					<p>22 ноября</p>
 					<p>23:59</p>
 				</div>
-				<button class="arrow"><img src={arrowShort} alt="" /></button>
+				<a href="adaptation/inner/module" class="arrow"><img src={arrowShort} alt="" /></a>
 			</div>
 		</div>
 	</section>
 	{#if !closed}
-		<section class="col-span-2 flex">
+		<section transition:fade={{}} class="col-span-2 flex">
 			<img src={bigSec} alt="" class="h-full" />
-			<div class="flex grow flex-col pr-[30px] pt-9">
-				<div class="flex flex-row justify-between">
+			<div class="flex grow flex-col pt-9">
+				<div class="flex flex-row justify-between pr-[30px]">
 					<h2>Награды и опыт</h2>
-					<button> <img src={xClose} alt="Close" /> </button>
+					<button on:click={() => (closed = true)}> <img src={xClose} alt="Close" /> </button>
 				</div>
 				<div class="grow">
 					<img class="h-full w-full" src={bigSecText} alt="Just close it" />
 				</div>
 			</div>
 		</section>
+	{:else}
+		<section></section>
+		<section class="min-h-[441px]"></section>
 	{/if}
-	<section class="h-[441px]"></section>
+	<section class="min-h-[441px]"></section>
 	<section></section>
 	<section></section>
 </div>

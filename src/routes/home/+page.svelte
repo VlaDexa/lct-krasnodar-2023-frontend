@@ -42,8 +42,8 @@
 		<ul class="flex flex-col gap-4">
 			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
 				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px]">Новый курс:</h3>
-					<p class="text-sm font-medium">Вся информация о компании</p>
+					<h3 class="text-[12px] lg:text-[24px]">Новый курс:</h3>
+					<p class="text-sm font-medium lg:text-[28px]">Вся информация о компании</p>
 				</div>
 				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
 					><img src={arrowShort} alt="Перейти" /></button
@@ -51,8 +51,8 @@
 			</li>
 			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
 				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px]">Проверено:</h3>
-					<p class="text-sm font-medium">Тестовое задание</p>
+					<h3 class="text-[12px] lg:text-[24px]">Проверено:</h3>
+					<p class="text-sm font-medium lg:text-[28px]">Тестовое задание</p>
 				</div>
 				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
 					><img src={arrowShort} alt="Перейти" /></button
@@ -60,8 +60,8 @@
 			</li>
 			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
 				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px]">Новое задание:</h3>
-					<p class="text-sm font-medium">Прочитать материал о компании</p>
+					<h3 class="text-[12px] lg:text-[24px]">Новое задание:</h3>
+					<p class="text-sm font-medium lg:text-[28px]">Прочитать материал о компании</p>
 				</div>
 				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
 					><img src={arrowShort} alt="Перейти" /></button

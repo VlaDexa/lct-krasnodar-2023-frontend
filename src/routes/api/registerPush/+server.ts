@@ -9,14 +9,15 @@ const request_from = z.object({
 	keys: z.object({
 		p256dh: z.string(),
 		auth: z.string()
-	})
+	}),
+	email: z.string(),
 });
 
 export type PushSubscription = z.infer<typeof request_from>;
 
 async function insertUser(user: PushSubscription) {
 	const id_rows =
-		await pool.sql`INSERT INTO requests (endpoint, expiration_time, p256dh_key, auth_key) VALUES (${user.endpoint},${user.expirationTime},${user.keys.p256dh},${user.keys.auth}) RETURNING id`;
+		await pool.sql`INSERT INTO requests (endpoint, expiration_time, p256dh_key, auth_key, username) VALUES (${user.endpoint},${user.expirationTime},${user.keys.p256dh},${user.keys.auth},${user.email}) RETURNING id`;
 	return id_rows.rows[0].id as number;
 }
 

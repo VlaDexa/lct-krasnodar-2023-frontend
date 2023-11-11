@@ -6,6 +6,7 @@ export type PushSubscriptionModel = {
 	expirationTime: number | null;
 	p256dh_key: string;
 	auth_key: string;
+	username: string;
 };
 
 interface ITag {

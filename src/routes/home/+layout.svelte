@@ -24,17 +24,11 @@
 					userVisibleOnly: true,
 					applicationServerKey: vapidPublicKey
 				});
-				const email = decodeURI(
-					document.cookie
-						.split('; ')
-						.find((cookie) => cookie.startsWith('email='))
-						?.split('=')[1] ?? ''
-				);
 				let pushId = await get('push-id');
 				if (pushId) await fetch('/api/registerPush', { method: 'delete', body: pushId.toString() });
 				const register = await fetch('/api/registerPush', {
 					method: 'post',
-					body: JSON.stringify({ ...subscription.toJSON(), email: email }),
+					body: JSON.stringify(subscription.toJSON()),
 					headers: { 'Content-Type': 'application/json' }
 				});
 				const id = parseInt(await register.json());

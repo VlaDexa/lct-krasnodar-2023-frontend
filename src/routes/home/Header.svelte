@@ -5,10 +5,9 @@
 	import chevron from '$lib/images/chevron.svg';
 	import profile from '$lib/images/profile.svg';
 	import menu from '$lib/images/menu.svg';
-	import { get } from 'svelte/store';
 
 	export let sideMenuOpened = false;
-	let path = get(page).url.pathname;
+	let path = $page.url.pathname;
 	page.subscribe((page) => (path = page.url.pathname));
 	let profileMenuOpened = false;
 	$: profileMenuOpened && sideMenuOpened && (profileMenuOpened = !sideMenuOpened);

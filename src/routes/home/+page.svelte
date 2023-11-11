@@ -2,6 +2,7 @@
 	import arrowRight from '$lib/images/arrow-right.svg';
 	import calendar from '$lib/images/calendar.webp';
 	import arrowShort from '$lib/images/arrow-short.svg';
+	import Notification from '$lib/Notification.svelte';
 </script>
 
 <svelte:head>
@@ -40,33 +41,9 @@
 	<section class="flex flex-col gap-8 rounded-[48px] bg-white px-[60px] py-12 text-[#475467]">
 		<h2 class="text-4xl font-medium">Уведомления</h2>
 		<ul class="flex flex-col gap-4">
-			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
-				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px] lg:text-[24px]">Новый курс:</h3>
-					<p class="text-sm font-medium lg:text-[28px]">Вся информация о компании</p>
-				</div>
-				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
-					><img src={arrowShort} alt="Перейти" /></button
-				>
-			</li>
-			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
-				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px] lg:text-[24px]">Проверено:</h3>
-					<p class="text-sm font-medium lg:text-[28px]">Тестовое задание</p>
-				</div>
-				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
-					><img src={arrowShort} alt="Перейти" /></button
-				>
-			</li>
-			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
-				<div class="flex grow flex-col gap-1">
-					<h3 class="text-[12px] lg:text-[24px]">Новое задание:</h3>
-					<p class="text-sm font-medium lg:text-[28px]">Прочитать материал о компании</p>
-				</div>
-				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
-					><img src={arrowShort} alt="Перейти" /></button
-				>
-			</li>
+			<Notification title={'Новый курс:'} content={'Вся информация о компании'} />
+			<Notification title={'Проверено:'} content={'Тестовое задание'} />
+			<Notification title={'Новое задание:'} content={'Прочитать материал о компании'} />
 		</ul>
 	</section>
 	<section class="flex flex-col gap-8 rounded-[48px] bg-white px-[60px] py-12 text-[#475467]">

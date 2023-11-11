@@ -1,4 +1,4 @@
-import type { NotificationData } from "./routes/api/sendNotificationToUser/+server";
+import type { NotificationData } from './routes/api/sendNotificationToUser/+server';
 
 declare global {
 	interface Window {

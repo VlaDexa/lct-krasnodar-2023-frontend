@@ -25,7 +25,7 @@ export const GET: RequestHandler = async () => {
 		const daysLeft = Math.floor(hoursLeft / 24);
 		const data: NotificationData = {
 			content: `До конца ЛЦТ Краснодарский Край осталось ${daysLeft} дней, ${hoursLeft % 24} часов`,
-			summary: "AHTUNG",
+			summary: 'AHTUNG'
 		};
 
 		const requests = allPush.rows.map((row) =>
@@ -47,4 +47,3 @@ export const GET: RequestHandler = async () => {
 		throw error(500, 'Error while reading subscriber database');
 	}
 };
-

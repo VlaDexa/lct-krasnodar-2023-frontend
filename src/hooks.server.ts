@@ -25,10 +25,16 @@ await pool.sql`CREATE TABLE IF NOT EXISTS requests (
 );`;
 
 export const handle: Handle = async ({ event, resolve }) => {
-	if (event.url.pathname.startsWith("/home")) {
-		if (!(event.cookies.get('access_token') && event.cookies.get('refresh_token') && event.cookies.get('email')))
-			throw redirect(303, "/login");
+	if (event.url.pathname.startsWith('/home')) {
+		if (
+			!(
+				event.cookies.get('access_token') &&
+				event.cookies.get('refresh_token') &&
+				event.cookies.get('email')
+			)
+		)
+			throw redirect(303, '/login');
 	}
-	if (event.url.pathname === "/") throw redirect(303, "/home");
+	if (event.url.pathname === '/') throw redirect(303, '/home');
 	return await resolve(event);
-} 
+};

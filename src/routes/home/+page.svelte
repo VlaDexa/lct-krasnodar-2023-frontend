@@ -1,7 +1,6 @@
 <script>
 	import arrowRight from '$lib/images/arrow-right.svg';
 	import calendar from '$lib/images/calendar.webp';
-	import arrowShort from '$lib/images/arrow-short.svg';
 	import Notification from '$lib/Notification.svelte';
 </script>
 

@@ -16,8 +16,8 @@ export const actions: Actions = {
 				username: email,
 				password
 			});
-			cookies.set('access_token', res.access_token);
-			cookies.set('refresh_token', res.access_token);
+			cookies.set('access_token', res.access_token, { secure: true });
+			cookies.set('refresh_token', res.access_token, { secure: true });
 			cookies.set('email', email);
 		} catch (e) {
 			if (e instanceof ApiError) {

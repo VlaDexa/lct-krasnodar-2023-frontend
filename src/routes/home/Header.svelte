@@ -80,7 +80,9 @@
 				<li class="active:text-[#1570EF]">Достижения</li>
 				<li class="active:text-[#1570EF]">Заметки</li>
 				<li class="active:text-[#1570EF]">Настройки</li>
-				<li class="active:text-[#1570EF]">Выход</li>
+				<li class="active:text-[#1570EF]">
+					<a href="/login">Выход</a>
+				</li>
 			</ul>
 		</nav>
 	{:else if sideMenuOpened}
@@ -176,6 +178,7 @@
 
 	@media only screen and (min-width: 1024px) {
 		.profileNav {
+			font-size: 28px;
 			top: 96px;
 			right: 120px;
 		}

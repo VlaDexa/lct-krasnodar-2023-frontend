@@ -1,6 +1,7 @@
 <script>
 	import arrowRight from '$lib/images/arrow-right.svg';
 	import calendar from '$lib/images/calendar.webp';
+	import arrowShort from '$lib/images/arrow-short.svg';
 </script>
 
 <svelte:head>
@@ -9,7 +10,7 @@
 </svelte:head>
 
 <!-- Desktop Layout -->
-<git class="grid grid-cols-2 gap-[34px] px-5 py-10 max-lg:hidden xl:px-[100px] 2xl:px-[200px]">
+<div class="grid grid-cols-2 gap-[34px] px-5 py-10 max-lg:hidden xl:px-[100px] 2xl:px-[200px]">
 	<section class="rounded-3xl bg-white px-12 py-[38px]">
 		<h2 style:line-height="28px" class="text-4xl font-semibold text-[#475467]">Мои достижения</h2>
 		<p class="font mt-5 text-2xl text-[#667085]">
@@ -36,7 +37,42 @@
 		</h1>
 		<p aria-label="Количество опыта" class="text-2xl">100 xp осталось</p>
 	</section>
-</git>
+	<section class="flex flex-col gap-8 rounded-[48px] bg-white px-[60px] py-12 text-[#475467]">
+		<h2 class="text-4xl font-medium">Уведомления</h2>
+		<ul class="flex flex-col gap-4">
+			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
+				<div class="flex grow flex-col gap-1">
+					<h3 class="text-[12px]">Новый курс:</h3>
+					<p class="text-sm font-medium">Вся информация о компании</p>
+				</div>
+				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
+					><img src={arrowShort} alt="Перейти" /></button
+				>
+			</li>
+			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
+				<div class="flex grow flex-col gap-1">
+					<h3 class="text-[12px]">Проверено:</h3>
+					<p class="text-sm font-medium">Тестовое задание</p>
+				</div>
+				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
+					><img src={arrowShort} alt="Перейти" /></button
+				>
+			</li>
+			<li class="shdw flex flex-row gap-5 rounded-[20px] px-4 py-3">
+				<div class="flex grow flex-col gap-1">
+					<h3 class="text-[12px]">Новое задание:</h3>
+					<p class="text-sm font-medium">Прочитать материал о компании</p>
+				</div>
+				<button class="shdw rounded-2xl bg-[#1570EF] px-5 py-[7px]"
+					><img src={arrowShort} alt="Перейти" /></button
+				>
+			</li>
+		</ul>
+	</section>
+	<section class="flex flex-col gap-8 rounded-[48px] bg-white px-[60px] py-12 text-[#475467]">
+		<h2 class="text-4xl font-medium">Календарь</h2>
+	</section>
+</div>
 
 <!-- Mobile Layout -->
 <div class="lg:hidden">

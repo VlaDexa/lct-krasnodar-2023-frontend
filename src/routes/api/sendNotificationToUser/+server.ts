@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import type { QueryResultRow } from '@vercel/postgres';
 import type { PushSubscriptionModel } from '../../../models';
 import { pool } from '../../../hooks.server';
-import { fail, json, text } from '@sveltejs/kit';
+import { json, text } from '@sveltejs/kit';
 import web_push from 'web-push';
 
 const Notification = z.object({
@@ -22,7 +22,7 @@ export type NotificationData = {
 export type Notifications = z.infer<typeof Notification>;
 
 export const POST: RequestHandler = async ({ request }) => {
-	if (request.headers.get('Content-Type') === 'application/json')
+	if (request.headers.get('Content-Type') !== 'application/json')
 		return json({ message: 'Wrong MIME type!' }, { status: 415 });
 	const data = await request.json();
 	const parsed = Notification.safeParse(data);

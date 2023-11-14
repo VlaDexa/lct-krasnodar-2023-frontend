@@ -28,7 +28,7 @@
 			{/each}
 		</nav>
 	</nav>
-	<div class="grow flex flex-col">
+	<div class="flex grow flex-col">
 		<slot />
 	</div>
 </div>

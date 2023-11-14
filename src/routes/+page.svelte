@@ -66,11 +66,11 @@
 
 <section class="px-[40vw] py-[47vh]">
 	{#if granted}
-		<button class="w-full border-2 border-green-500 rounded-full p-2" on:click={sendNotif}
+		<button class="w-full rounded-full border-2 border-green-500 p-2" on:click={sendNotif}
 			>Отправить уведомление</button
 		>
 	{:else if granted === undefined}
-		<button class="w-full border-2 border-green-500 rounded-full p-2" on:click={handleClick}>
+		<button class="w-full rounded-full border-2 border-green-500 p-2" on:click={handleClick}>
 			Включить оповещения
 		</button>
 	{:else}

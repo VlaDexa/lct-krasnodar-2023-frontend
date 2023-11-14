@@ -6,19 +6,19 @@
 	export let form: ActionData;
 </script>
 
-<section class="w-screen gap-4 flex flex-col pt-40">
-	<form method="POST" class="flex gap-2 justify-center">
+<section class="flex w-screen flex-col gap-4 pt-40">
+	<form method="POST" class="flex justify-center gap-2">
 		<input
 			type="text"
 			name="tag"
 			required
 			id="tag"
-			class="border-2 border-green-500 px-2 py-1 rounded-full"
+			class="rounded-full border-2 border-green-500 px-2 py-1"
 			placeholder="Крутой текст"
 		/>
 		<button
 			type="submit"
-			class="border-2 rounded-full px-2 py-1 border-green-500 hover:bg-gray-100 transition-colors"
+			class="rounded-full border-2 border-green-500 px-2 py-1 transition-colors hover:bg-gray-100"
 		>
 			->
 		</button>
@@ -28,9 +28,9 @@
 	{:else if form?.success}
 		<p class="text-center">Success</p>
 	{/if}
-	<ul class="flex justify-center flex-wrap gap-2">
+	<ul class="flex flex-wrap justify-center gap-2">
 		{#each data.tags as tag (tag.id)}
-			<li class="border-2 border-green-500 rounded-full px-2 py-1">
+			<li class="rounded-full border-2 border-green-500 px-2 py-1">
 				{tag.tag_name}
 			</li>
 		{:else}

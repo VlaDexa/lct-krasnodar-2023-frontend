@@ -50,7 +50,7 @@
 	});
 </script>
 
-<div class="flex flex-col grow bigScreenBg">
+<div class="bigScreenBg flex grow flex-col">
 	<Header bind:sideMenuOpened={menuOpened} />
 	{#if menuOpened}
 		<div

@@ -35,6 +35,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 		)
 			throw redirect(303, '/login');
 	}
-	if (event.url.pathname === '/') throw redirect(303, '/home');
+	if (event.url.pathname === '/') throw redirect(301, '/home');
 	return await resolve(event);
 };

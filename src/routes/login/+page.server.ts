@@ -3,6 +3,13 @@ import { redirect, fail } from '@sveltejs/kit';
 import { ApiError, UserService } from '$lib/openapi';
 import type { Config } from "@sveltejs/adapter-vercel";
 
+export const config: Config = {
+	isr: {
+		expiration: 60,
+		allowQuery: [],
+	}
+};
+
 export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const form = await request.formData();

@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/private';
+import { building } from '$app/environment';
 import web_push from 'web-push';
 // Because `web-push` is a CommonJS module,
 // we need to do this named exporting
@@ -25,7 +26,7 @@ await pool.sql`CREATE TABLE IF NOT EXISTS requests (
 );`;
 
 export const handle: Handle = async ({ event, resolve }) => {
-	if (event.url.pathname.startsWith('/home')) {
+	if (!building && event.url.pathname.startsWith('/home')) {
 		if (
 			!(
 				event.cookies.get('access_token') &&

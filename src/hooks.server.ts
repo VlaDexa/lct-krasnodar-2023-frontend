@@ -16,14 +16,14 @@ OpenAPI.BASE = 'https://api.lapki.vladexa.ru:8000';
 setGCMAPIKey(env.GCM_API_KEY);
 setVapidDetails('mailto:vgrechannik@gmail.com', env.VAPID_PUBLIC_KEY, env.VAPID_PRIVATE_KEY);
 
-await pool.sql`CREATE TABLE IF NOT EXISTS requests (
-    id SERIAL PRIMARY KEY,
-    endpoint VARCHAR(255) NOT NULL,
-    expiration_time INT,
-    p256dh_key VARCHAR(255) NOT NULL,
-    auth_key VARCHAR(255) NOT NULL,
-    username VARCHAR(255) NOT NULL
-);`;
+// await pool.sql`CREATE TABLE IF NOT EXISTS requests (
+//     id SERIAL PRIMARY KEY,
+//     endpoint VARCHAR(255) NOT NULL,
+//     expiration_time INT,
+//     p256dh_key VARCHAR(255) NOT NULL,
+//     auth_key VARCHAR(255) NOT NULL,
+//     username VARCHAR(255) NOT NULL
+// );`;
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (!building && event.url.pathname.startsWith('/home')) {

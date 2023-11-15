@@ -14,7 +14,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@fontsource/fira-mono": "^4.5.10",
+		"@fontsource/inter": "^5.0.15",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.39.0",
 		"@sveltejs/adapter-vercel": "^3.0.3",
@@ -45,5 +45,8 @@
 		"idb-keyval": "^6.2.1",
 		"web-push": "^3.6.6",
 		"zod": "^3.22.4"
-	}
+	},
+	"trustedDependencies": [
+		"sharp"
+	]
 }

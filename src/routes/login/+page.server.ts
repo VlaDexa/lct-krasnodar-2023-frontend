@@ -1,12 +1,12 @@
 import type { Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
 import { ApiError, UserService } from '$lib/openapi';
-import type { Config } from "@sveltejs/adapter-vercel";
+import type { Config } from '@sveltejs/adapter-vercel';
 
 export const config: Config = {
 	isr: {
 		expiration: 60,
-		allowQuery: [],
+		allowQuery: []
 	}
 };
 
